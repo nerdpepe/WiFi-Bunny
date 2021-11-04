@@ -1,0 +1,26 @@
+body {
+    background-color: steelblue;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.toph1 {
+    margin-top: 10px;
+    color:lime;
+    text-align: center;
+    font-size: larger;
+}
+
+h1 {
+    margin-top: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p {
+    font-weight: bold;
+}
+
+textarea {
+    background-color: antiquewhite;
+    height: 250px;
+    width: 550px;
+}
