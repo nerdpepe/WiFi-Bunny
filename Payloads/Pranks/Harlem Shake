@@ -1,0 +1,10 @@
+REM Tittle: Open Harlem Shake class edition video for YT 
+REM Category: Pranks
+REM Author: Florian H. 
+DELAY 250
+GUI r
+DELAY 250
+STRING https://www.youtube.com/watch?v=1FMcagq8j9w
+DELAY 250
+ENTER
+DELAY 250
