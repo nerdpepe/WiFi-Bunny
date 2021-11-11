@@ -24,3 +24,14 @@ textarea {
     height: 250px;
     width: 550px;
 }
+
+.centr {
+    border-left: 3px solid wheat;
+    justify-content: center;
+    margin-left: 3em;
+    padding-left: 3em;
+}
+
+.lspace {
+    margin-top: 2em;
+}
