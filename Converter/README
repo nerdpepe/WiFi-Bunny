@@ -1,0 +1,8 @@
+Compile and upload functions in this program depend on arduino-cli (https://github.com/arduino/arduino-cli)
+If you are using windows, download arduino-cli.exe and put it in the same directory with D2A.py
+If you are using linux or MacOS, please download the source code and compile it by yourself, then put the compiled binary file together with D2A.py.
+
+Run the following command under powershell/shell:
+./arduino-cli board attach arduino:avr:leonardo
+
+Then the program can work properly.
