@@ -1,4 +1,4 @@
-/*  This program are not currently available for wifi bunny. It seems to be more suitable for normal badusb devices that need to be flashed with a payload. I will make a version suitable for wifi bunny within this month.  */
+//Fixed: Locating errors: Added the function of displaying the line number where the error is located
 
 Compile and upload functions in this program depend on arduino-cli (https://github.com/arduino/arduino-cli)
 If you are using windows, download arduino-cli.exe and put it in the same directory with D2A.py
