@@ -80,6 +80,7 @@ RELEASE = "Keyboard.releaseAll();"
 
 
 
+
 ##################      GUI     ######################
 
 class Application_ui(Frame):
@@ -152,8 +153,10 @@ class Application(Application_ui):
 		FILE = FILE1
 		flag = 1   #Determine whether an error has occurred
 		flag_repeat = 0		#REPEAT
+		count = 0
 		for line in text_content:
 			if line:
+				count += 1
 				commands = line.split()
 				if commands[0] == "REM":
 					if(flag_repeat == 0):
@@ -165,7 +168,8 @@ class Application(Application_ui):
 				elif commands[0] == "DELAY":
 					if len(commands) != 2:
 						flag = 0
-						messagebox.showwarning('Error','Invalid use of \"DELAY\": Too many arguments')
+						error_delay = "line " + str(count) + "; Invalid use of \"DELAY\": Too many arguments"
+						messagebox.showwarning('Error',error_delay)
 						break
 					else:
 						if(flag_repeat == 0):
@@ -182,7 +186,8 @@ class Application(Application_ui):
 				elif commands[0] == "REPEAT":
 					if len(commands) != 2:
 						flag = 0
-						messagebox.showwarning('Error','Invalid use of \"REPEAT\": Too many arguments')
+						error_repeat = "line " + str(count) + "; Invalid use of \"REPEAT\": Too many arguments"
+						messagebox.showwarning('Error',error_repeat)
 						break
 					else:
 						flag_repeat = commands[1]
@@ -247,7 +252,8 @@ class Application(Application_ui):
 								RESPONSE = "'" + p + "'"
 							else:
 								flag = 0
-								messagebox.showwarning('Error','Exist unknown argument, please check!')
+								error_unknown = "line " + str(count) + "; Exist unknown argument, please check!"
+								messagebox.showwarning('Error',error_unknown)
 								break
 							if(flag_repeat == 0):
 								FILE += "\n" + "  " + KEYPRESS1 + RESPONSE + KEYPRESS2 + "\n"
@@ -323,7 +329,8 @@ class Application(Application_ui):
 							flag_repeat = 0
 				else:
 					flag = 0
-					messagebox.showwarning('Error','Exist unknown argument, please check!')
+					error_unknown = "line " + str(count) + "; Exist unknown argument, please check!"
+					messagebox.showwarning('Error',error_unknown)
 					break
 			else:
 				messagebox.showwarning('Error','Please enter the contents')
