@@ -1,4 +1,4 @@
-##**Writing your first payload**
+## **Writing your first payload**
 
 Now that we saw what the syntax of DuckyScripts is we can take a look into a simple payload.
 
@@ -15,6 +15,8 @@ STRING https://giphy.com/clips/AnimationOnFOX-the-simpsons-fox-foxtv-KpJ47gKe6b7
 DELAY 500
 
 ENTER
+
+https://giphy.com/clips/AnimationOnFOX-the-simpsons-fox-foxtv-KpJ47gKe6b7v7xQyWj
 
 As we saw in the documentation and the GIF, a payload is a piece of script that contains keystrokes combinations. Throughout these combinations, we can write payloads that can help us navigate, modify and see contents in a computer.
 
@@ -99,4 +101,4 @@ DELAY 500
 
 ENTER
 
-####**The example payload that we just saw gives us an idea of the possibilities and usages of the payloads. They can vary from funny pranks we can do to our friends to malicious codes that can be executed. Please use the devices with responsibility! :)**
+#### **The example payload that we just saw gives us an idea of the possibilities and usages of the payloads. They can vary from funny pranks we can do to our friends to malicious codes that can be executed. Please use the devices with responsibility! :)**
