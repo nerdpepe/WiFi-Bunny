@@ -1,0 +1,42 @@
+REM Tittle: Matrix effect
+REM Category: Pranks
+REM Tested: Yes
+REM Author: Florian H. 
+DELAY 500
+GUI r
+DELAY 500
+STRING notepad.exe
+DELAY 500
+ENTER
+DELAY 500
+DELAY 500
+STRING @echo off
+DELAY 500
+ENTER
+DELAY 500
+STRING color 02
+DELAY 500
+ENTER
+DELAY 500
+STRING :start
+DELAY 500
+ENTER
+DELAY 500
+STRING  echo %random% %random% %random% %random% 
+%random% %random% %random% %random% %random% 
+%random%.
+DELAY 500
+ENTER
+DELAY 500
+STRING  goto start
+DELAY 500
+CTRL S
+DELAY 500
+STRING It is just a prank.bat
+ENTER
+DELAY 500
+GUI
+DELAY 500
+STRING It is just a prank
+DELAY 500
+ENTER
