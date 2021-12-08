@@ -8,12 +8,20 @@
     <meta name="description" content="WifiBunny">
     <meta name="author" content="Bhardwaj">
     <!-- JS and CSS -->
+    <script src="text_download.js"></script>
+    <script src="ws_msgs.js"></script>
+    <script src="helper.js"></script>
+    <script src="ws_connection.js"></script>
     <script src="script.js"></script>
+    <script src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>WifiBunny</title>
 </head>
 
 <body>
+    <div style="position:relative; z-index:-1">
+        <canvas id="canvas" style="position:absolute"></canvas>
+    </div>
     <div class="toph1">
         <h1>WiFiBunny</h1>
     </div>
@@ -21,62 +29,38 @@
     <!-- Shows the current Status | Connect | Stop | -->
     <h1>Status</h1>
     <div class="centr">
-        <p>Current Status : </p>
-        <button> Reconnect </button>
-        <button> Stop </button>
-    </div>
-    <hr>
-
-    <!-- Some settings -->
-    <h1>WiFi Settings</h1>
-    <div class="centr">
-        <table>
-            <tr>
-                <td>
-                    <p>Channel : </p>
-                </td>
-                <td>
-                    <button> Edit Channel</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>SSID : </p>
-                </td>
-                <td>
-                    <button> Edit SSID </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>Password : </p>
-                </td>
-                <td>
-                    <button> Edit Password </button>
-                </td>
-            </tr>
-        </table>
+        <p>Storage : <span id="current_free_storage"></span> </p>
+        <p>Current Status : <span id="current_status"></span> </p>
+        <button id="reconnect_status">Reconnect</button>
+        <button id="stop_status"> Stop </button>
     </div>
     <hr>
 
     <!-- See the Scripts here-->
     <h1>Scripts</h1>
     <div class="centr">
-        <p> - Saved scripts should up here - </p>
+        <button id="load_scripts"> Reload </button>
+        <table id="table_scripts"></table>
     </div>
     <hr>
     <!-- Write scripts in the editor -->
     <h1>Editor</h1>
-
+    <div class="centr lspace">
+        <input placeholder="Filename /<name>" type="text" class="smooth" value="/yourfilename" id="editorFile">
+        <button id="editorSave">Save</button>
+        <button id="text_download">Download</button>
+    </div>
     <div class="centr">
         <textarea id="textarea"></textarea>
     </div>
-    <div class="lspace">
-        <button id="editorSave">Save</button>
-        <button id="text_download">Download</button>
+    <div class="centr">
+        <button id="editorRun">RUN</button>
+        <button id="editorStop">STOP</button>
+        <button id="editorDelete">DELETE</button>
     </div>
     <hr>
 
 </body>
 
 </html>
+<script src="background.js"></script>

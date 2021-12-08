@@ -1,37 +1,65 @@
-function elem_doc(id) {
-    return document.getElementById(id);
+var ws_url = "192.168.4.1";
+var current_status = ""; // to store the current connection status
+
+// websocket
+var ws = null;
+var ws_queue_messages = []; // outgoing msgs
+var ws_interval = null;
+var ws_interval_timeout = 0 // interval timeout
+
+var send_flag = false; // message queue
+var ws_callback = wslog;
+
+// Sets background Color of status 
+function setBackground(current_status, color) {
+    elem_doc(current_status).style.backgroundColor = color;
 }
 
-// OnLoad event
-window.addEventListener('load', loaded)
-function loaded() {
-    elem_doc("text_download").onclick = function () {
-        console.log("Clicked");
-        download_txt("File_Name", get_editor_content());
-    };
+/*
+    Sets Text Color of status according to 'condition'
+*/
+
+function setTextColor(condition) {
+    if (condition == "connected") {
+        elem_doc("current_status").style.color = "#3c5";
+    } else if (condition == "disconnected") {
+        elem_doc("current_status").style.color = "#ed1556";
+    } else if (condition.includes("problem") || condition.includes("error")) {
+        elem_doc("current_status").style.color = "#ffb247";
+    } else /*if (condition == "connecting..")*/ {
+        elem_doc("current_status").style.color = "#0ae";
+    }
 }
 
-// Get the content of editor
-function get_editor_content() {
-    var content = elem_doc("textarea").value;
-
-    if (!content.endsWith("\n"))
-        content = content + "\n";
-
-    return content;
+// change status on interface
+function update_status(condition) {
+    current_status = condition;
+    setBackground("current_status", "#c0c0c0");
+    setTextColor(condition);
+    elem_doc("current_status").innerHTML = condition;
 }
 
-/*  Download the file : 
-    https://www.delftstack.com/howto/javascript/javascript-download/
- */
+function ws_q_msgs_update() {
+    if (ws_queue_messages.length >= 1 && send_flag) {
+        var item = ws_queue_messages.shift();
+        ws.send(item.message);
+        ws_callback = item.callback;
+        console.debug("# " + item.message);
+        send_flag = false;
+    }
+}
 
-function download_txt(fileName, fileContent) {
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fileContent));
-    element.setAttribute('download', fileName);
-
-    document.body.appendChild(element);
-    // simulate mouse click
-    element.click();
-    document.body.removeChild(element);
+// == WebSocket initialization == //
+function ws_init() {
+    update_status("..connecting"); // function in same file
+    ws = new WebSocket("ws://" + ws_url + "/ws"); // creating ws
+    ws.onopen = WS_Open;
+    ws.onclose = WS_Close;
+    ws.onmessage = WS_Msg;
+    ws.onerror = WS_error;
+    //clear to send
+    send_flag = true;
+    // clear the interval if it is set and then use setInterval
+    ws_interval = set_ws_interval(ws_q_msgs_update);
+    wslog("WS_INIT_END");
 }

@@ -8,6 +8,7 @@ body {
     color:lime;
     text-align: center;
     font-size: larger;
+    background-color: black;
 }
 
 h1 {
@@ -34,4 +35,15 @@ textarea {
 
 .lspace {
     margin-top: 2em;
+}
+
+/* 
+    urrent_status
+*/
+#current_status {
+	/* text-align: center; */
+	text-transform: capitalize;
+	padding: 5px;
+	color: #fff;
+    width: 150px;
 }
