@@ -1,19 +1,3 @@
-﻿## **Payloads in WifiBunny and 16Bunny**
-
-Both devices carry and execute the same payloads. Payloads are written in Ducky Script.
-
-#### **What is Ducky Script?**
-
-Ducky Script is the payload language of Hak5 gear.
-
-#### **How do we use the Duckyscripts in WifiBunny and 16Bunny?** 
-
-WifiBunny and 16Bunny are two devices that use Arduino micro as the mainboard. Hacktricks uses its own converter from DuckyScripts to C files since that's the acceptable language of the Arduino boards. 
-
-#### **How to write a simple payload in Bunny (HackTricks) devices?** 
-
-Payloads are written in DuckyScript, to write scripts users can use any common ASCII text editor such as Notepad, nano, Sublime Text, Atom, VIM, etc. 
-
 ## **The syntax** 
 DuckyScript is simple. Each command is given in a new line. Commands are case sensitive and all of them are written in ALL CAPS.
 
